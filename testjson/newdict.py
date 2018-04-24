@@ -43,30 +43,30 @@ def newspares():                  #функция создаёт новый сл
 
     return newdict
 
+
+newspar = newspares()
+
 def sumspares():           #функция создаёт новый словарь sum=cout+arrive
 
     sumdict = {}
     for sum in newspares():
         sumdict[sum] = {}
-        sumdict[sum]['count'] = newspares()[sum]['count']
-        sumdict[sum]['arrive'] = newspares()[sum]['arrive']
-        sumdict[sum]['mustbe'] = newspares()[sum]['mustbe']
+        sumdict[sum]['count'] = newspar[sum]['count']
+        sumdict[sum]['arrive'] = newspar[sum]['arrive']
+        sumdict[sum]['mustbe'] = newspar[sum]['mustbe']
         sumdict[sum]['sum'] = sumdict[sum]['count'] + sumdict[sum]['arrive']
 
     return sumdict
 
+sumsparesbuy = sumspares()
+
 def needtobuy():             #функция создаёт новый словарь запчастей которые надо докупить
 
     needtobuy = {}
-
     for tobuy in sumspares():
         needtobuy[tobuy] = {}
-        needtobuy[tobuy]['mustbbay'] = sumspares()[tobuy]['mustbe'] - sumspares()[tobuy]['sum']
+        needtobuy[tobuy]['mustbbay'] = sumsparesbuy[tobuy]['mustbe'] - sumsparesbuy[tobuy]['sum']
         if needtobuy[tobuy]['mustbbay'] <= 1:
             del needtobuy[tobuy]
 
     return needtobuy
-
-
-
-
