@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица</title>
+</head>
+<body>
+
+<h1><a href="{% url 'json_needtobuy' %}">Список запчестей которые надо докупить</a></h1>
+
+<table border="1">
+  <tr>
+    <td>*****</td>
+    <td>COUNT</td>
+    <td>ARRIVE</td>
+    <td>MUSTBE</td>
+  </tr>
+
+    {% for key, value in context.items %}
+        {% if value.sum < value.mustbe %}
+        <tr style="color:#ff1400">
+        {% else %}
+        <tr>
+        {% endif %}
+
+    <td>{{key}}</td>
+    <td>{{value.count}}</td>
+    <td>{{value.arrive}}</td>
+    <td>{{value.mustbe}}</td>
+
+    {% endfor %}
+
+</table>
+
+
+</body>
+</html>
