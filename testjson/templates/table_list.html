@@ -12,13 +12,13 @@
   <tr>
     <td>*****</td>
       <td><b>COUNT</b></td>
-      <td><b>ARRIVE</b>></td>
-      <td><b>MUSTBE</b>></td>
+      <td><b>ARRIVE</b></td>
+      <td><b>MUSTBE</b></td>
   </tr>
 
     {% for key, value in context.items %}
         {% if value.sum < value.mustbe %}
-        <tr style="color:#ff1400; font-weight:bolder">
+        <tr style="color:#ff1400; font-weight:bolder; text-decoration: underline">
         {% else %}
         <tr>
         {% endif %}
