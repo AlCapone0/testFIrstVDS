@@ -1,1 +1,2 @@
 # FIrstVDS
+python & django
